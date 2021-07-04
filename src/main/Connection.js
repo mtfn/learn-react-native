@@ -1,28 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native';
+
+import styles from './styles/Connection.style'
 
 export default function Connection() {
-
     const [isConnected, setConnected] = useState(false);
-
-    const styles = StyleSheet.create({
-        main: {
-            marginTop: '15%',
-            height: '30%'
-        },
-
-        text: {
-            color: '#d5d9e0',
-            textAlign: 'center',
-            fontSize: 20
-        },
-
-        button: {
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '5%',
-        }
-    });
 
     return (
     <View style={styles.main}>
