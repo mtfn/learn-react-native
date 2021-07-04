@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, PixelRatio } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function Connection() {
 
@@ -27,7 +27,7 @@ export default function Connection() {
     return (
     <View style={styles.main}>
         <Text style={styles.text}>
-            Network status: {isConnected ? 'Connected to 3 peers' : 'Not connected'}
+            Network status: {isConnected ? 'Connected' : 'Not connected'}
         </Text>
         <View style={styles.button}>
             <Button onPress={() => {setConnected(!isConnected)}} title={isConnected ? 'Disconnect' : 'Connect'} />

@@ -40,7 +40,7 @@ export default function MainView({ navigation }) {
     return (
     <View style={styles.main}>
         <View style={styles.header}>
-            <TouchableOpacity style={styles.newButton} onPress={() => navigation.navigate('Create')}>
+            <TouchableOpacity style={styles.newButton} onPress={() => navigation.navigate('Poll type')}>
                 <Text style={styles.buttonText}>+</Text>
             </TouchableOpacity>
             <Text style={styles.title}>Create poll</Text>
