@@ -4,7 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import MainView from './src/main/MainView';
-import CreateView from './src/create/CreateView';
+import SelectPollType from './src/create/SelectPollType';
+import AddOptions from './src/create/AddOptions';
+
+const hOpts = { headerTintColor: '#d5d9e0' }
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -12,7 +15,8 @@ export default function App() {
     <NavigationContainer theme={{ colors: { background: '#0d1117' } }}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={MainView} options={{ headerShown: false }}/>
-        <Stack.Screen name="Poll type" component={CreateView} options={{ headerTintColor: '#d5d9e0' }} />
+        <Stack.Screen name="Poll type" component={SelectPollType} options={hOpts} />
+        <Stack.Screen name="Create poll" component={AddOptions} options={hOpts} />
       </Stack.Navigator>
     </NavigationContainer>
   );

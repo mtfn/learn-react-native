@@ -1,36 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableHighlight } from 'react-native';
+import { View, Text, FlatList, TouchableHighlight } from 'react-native';
 
-const styles = StyleSheet.create({
-    main: {
-        marginTop: '5%'
-    },
-
-    question: {
-        fontSize: 25,
-        textAlign: 'center',
-        color: '#d5d9e0',
-        marginBottom: '5%'
-    },
-
-    item: {
-        borderColor: '#d5d9e0',
-        borderWidth: 1,
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-      },
-    
-    title: {
-        color: '#d5d9e0',
-        fontSize: 32,
-    },
-
-    description: {
-        marginTop: '5%',
-        color: '#d5d9e0'
-    }
-});
+import styles from './styles/SelectPollType.style'
 
 const list = [
     {
@@ -50,8 +21,8 @@ const list = [
     },
 ];
   
-  const Item = ({ title, description }) => (
-    <TouchableHighlight onPress={() => alert("clicked")}>
+  const Item = ({ title, description, onPress }) => (
+    <TouchableHighlight onPress={onPress}>
       <View style={styles.item}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
@@ -59,14 +30,17 @@ const list = [
     </TouchableHighlight>
 );
 
-export default function CreateView() {
+export default function SelectPollType({ navigation }) {
 
     const renderItem = ({ item }) => (
-        <Item title={item.title} description={item.description} />
+        <Item
+          title={item.title}
+          description={item.description}
+          onPress={() => { navigation.navigate('Create poll') }} />
     );
 
     return (
-    <View style={styles.main}>
+    <View style={styles.container}>
         <Text style={styles.question}>Choose your favorite:</Text>
         <FlatList
             data={list}
