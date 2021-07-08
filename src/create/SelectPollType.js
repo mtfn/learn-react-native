@@ -1,42 +1,46 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableHighlight } from 'react-native';
+import { View, Text, Image, FlatList, TouchableHighlight } from 'react-native';
+
+import rankedIcon from '../../assets/ranked.png'
+import approvalIcon from '../../assets/approval.png'
+import pluralityIcon from '../../assets/plurality.png'
 
 import styles from './styles/SelectPollType.style'
 
 const list = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      id: 'b7fcd',
       title: 'Instant-runoff',
-      description: 'Voters rank their favorites, losers are eliminated in multiple rounds. Losers\' votes follow the ranking.\n\nVote third party, guilt-free.'
+      description: 'Voters rank their favorites, losers are eliminated in multiple rounds. Losers\' votes follow the ranking.\n\nVote third party, guilt-free.',
+      image: rankedIcon,
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      id: '1ca5f',
       title: 'Approval',
-      description: 'Voters select multiple options, most votes wins.\n\nFind the most okay option.'
+      description: 'Voters select multiple options, most votes wins.\n\nFind the most okay option.',
+      image: approvalIcon
     },
     {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      id: 'e3647',
       title: 'Plurality',
-      description: 'Voters select one option, most votes wins.\n\nPlain and simple.'
+      description: 'Voters select one option, most votes wins.\n\nPlain and simple.',
+      image: pluralityIcon
     },
 ];
-  
-  const Item = ({ title, description, onPress }) => (
-    <TouchableHighlight onPress={onPress}>
-      <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
-      </View>
-    </TouchableHighlight>
-);
 
 export default function SelectPollType({ navigation }) {
 
     const renderItem = ({ item }) => (
-        <Item
-          title={item.title}
-          description={item.description}
-          onPress={() => { navigation.navigate('Create poll') }} />
+      <TouchableHighlight onPress={() => { navigation.navigate('Create poll') }}><View style={styles.item}>
+
+        <Image source={item.image} style={styles.image} />
+
+        <View style={styles.textView}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.description}>{item.description}</Text>
+        </View>
+
+        </View></TouchableHighlight>
     );
 
     return (
@@ -45,7 +49,6 @@ export default function SelectPollType({ navigation }) {
         <FlatList
             data={list}
             renderItem={renderItem}
-            keyExtractor={item => item.id}
         />
     </View>);
 }
