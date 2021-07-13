@@ -1,15 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-const submit = {
-    borderWidth: 1,
-    marginLeft: '25%',
-    marginRight: '25%',
-    padding: '1%',
-    borderColor: 'limegreen',
-    width: '50%',
-    marginBottom: '10%'
-}
-
 export default StyleSheet.create({
     item: {
         borderColor: '#d5d9e0',
@@ -44,15 +34,5 @@ export default StyleSheet.create({
 
     list: {
         height: '80%'
-    },
-
-    submit: submit,
-
-    submitDisabled: Object.assign({}, submit, {borderColor: 'lightcoral'}),
-
-    submitText: {
-        fontSize: 30,
-        textAlign: 'center',
-        color: '#d5d9e0'
     }
 });

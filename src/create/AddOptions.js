@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { View, TouchableOpacity, Text, FlatList, KeyboardAvoidingView, TextInput } from 'react-native';
 import uuid from 'react-native-uuid';
 
+import CenteredButton from '../common/CenteredButton';
+
 import styles from './styles/AddOptions.style'
 
 export default function AddOptions() {
@@ -33,10 +35,8 @@ export default function AddOptions() {
             behavior={Platform.select({ ios: 'padding' })}
             style={styles.keyboardAvoidingView}
         >
-            
-            <TouchableOpacity disabled={data.length < 2} style={data.length > 1 ? styles.submit : styles.submitDisabled}>
-                <Text style={styles.submitText}>Done</Text>
-            </TouchableOpacity>
+
+            <CenteredButton text='Done' disabled={data.length < 2} />
             
             <FlatList
                 style={styles.list}
