@@ -7,6 +7,10 @@ import styles from './styles/MainView.style'
 
 export default function MainView({ navigation }) {
 
+    const enterPoll = () => {
+        navigation.navigate('Plurality poll');
+    }
+
     return (
     <View style={styles.main}>
         <View style={styles.header}>
@@ -16,7 +20,7 @@ export default function MainView({ navigation }) {
             <Text style={styles.title}>Create poll</Text>
         </View>
 
-        <ContentView />
+        <ContentView onSubmit={enterPoll} />
         <Connection />
     </View>);
 }
