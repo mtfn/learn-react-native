@@ -6,7 +6,7 @@ import CenteredButton from '../common/CenteredButton';
 
 import styles from './styles/AddOptions.style'
 
-export default function AddOptions() {
+export default function AddOptions({ navigation }) {
     const [ data, setData ] = useState([]);
     const [ text, setText ] = useState('');
 
@@ -22,12 +22,22 @@ export default function AddOptions() {
 
     const textInput = useRef(null);
     const onSubmit = () => {
-        const newItem = {
+
+        if(text.trim() === '' || text.length > 200) {
+            return;
+        }
+
+        setData(prev => [...prev, {
             text: text,
             id: uuid.v4()
-        }
-        setData(prev => [...prev, newItem]);
+        }]);
+
+        setText('');
         textInput.current.clear();
+    }
+
+    const onDone = () => {
+        navigation.navigate('Other options');
     }
 
     return (
@@ -36,7 +46,7 @@ export default function AddOptions() {
             style={styles.keyboardAvoidingView}
         >
 
-            <CenteredButton text='Done' disabled={data.length < 2} />
+            <CenteredButton text='Continue' disabled={data.length < 2} onPress={onDone} />
             
             <FlatList
                 style={styles.list}
