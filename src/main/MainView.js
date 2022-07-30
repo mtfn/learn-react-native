@@ -1,14 +1,13 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import ContentView from './ContentView';
-import Connection from './Connection';
 
 import styles from './styles/MainView.style'
 
 export default function MainView({ navigation }) {
 
     const enterPoll = () => {
-        navigation.navigate('Plurality poll');
+        navigation.navigate('Ranked poll');
     }
 
     return (
@@ -21,6 +20,5 @@ export default function MainView({ navigation }) {
         </View>
 
         <ContentView onSubmit={enterPoll} />
-        <Connection />
     </View>);
 }
