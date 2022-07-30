@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, FlatList, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, TouchableHighlight, Text } from 'react-native';
 
 import CenteredButton from '../common/CenteredButton';
 
@@ -68,11 +68,11 @@ export default function Plurality() {
     }
 
     const renderItem = ({ item }) => (
-        <TouchableOpacity onPress={() => { approvalSelect(item.id) }}>
+        <TouchableHighlight onPress={() => { approvalSelect(item.id) }}>
             <View style={[styles.item, item.selected ? styles.selected : styles.unselected]}>
                 <Text style={styles.title}>{item.text}</Text>
             </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
     );
 
     return (
